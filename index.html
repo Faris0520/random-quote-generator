@@ -4,16 +4,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quotes of the day</title>
     <link rel="stylesheet" href="style.css">
+    <meta property="og:description" content="A Quotes Generator website. You can use this website to get the random quotes for your days, and post it to X!">
+    <meta property="og:type" content="website">
+   <meta property="og:theme-color" content="BLUE">
+    <meta property="og:title" content="Random Quotes Generator">
+    <meta property="og:site_name" content="Faris0520">
+    <meta property="og:image" content="https://cdn.glitch.com/c0afffe6-0662-468b-8c0c-cdaf899ed85a%2Fdogemwhehe.png?v=1613502044423">
+    <meta property="og:url" content="https://quote.parriz.my.id">
+  <meta name="theme-color" content="BLACK">
+
 </head>
 <body>
     <div class="quotebox">
         <h2>Quotes of the day</h2>
-        <blockquote>Loading..</blockquote>
-        <span>Loading..</span>
+        <blockquote id="quotes">Loading..</blockquote>
+        <span id="author">Loading..</span>
         <div>
-            <button>New Quote</button>
-            <button>Tweet</button>
+            <button onclick="getQuote(url)">New Quote</button>
+            <button onclick="twt()"><img src="twt.png" alt="twt">Tweet</button>
         </div>
+        
+    <script>
+        const quote = document.getElementById('quotes');
+        const author = document.getElementById('author');
+        const url = 'https://quotes-api-self.vercel.app/quote';
+
+        async function getQuote(url) {
+            const response = await fetch(url);
+            var data = await response.json();
+            console.log(data)
+            quote.innerHTML = data.quote;
+            author.innerHTML = data.author;
+        }
+
+        getQuote(url); 
+
+        function twt() {
+            const quoteText = quote.innerText;
+            const authorText = author.innerText;
+            const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText} - by ${authorText}`;
+            window.open(twitterUrl, 'X Window', 'width=600,height=400');
+        }
+    </script>
     </div>
 </body>
 </html>

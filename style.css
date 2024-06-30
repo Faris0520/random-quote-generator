@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 *{
     margin: 0;
@@ -7,7 +7,7 @@
     font-family: 'Playfair', serif;
 }
 body{
-    background: #253d3b
+    background: #00666d
 }
 .quotebox{
     width: 700px;
@@ -32,6 +32,14 @@ body{
     margin-bottom: 40px;
     position: relative;
 }
+.quotebox button img{
+    width: 20px;
+    margin-left: 10px;
+}
+.quotebox button:nth-child(2){
+    background: transparent;
+    color: #333;
+}
 .quotebox h2::after{
     content: '';
     width: 74px;
@@ -45,23 +53,22 @@ body{
 }
 .quotebox blockquote::before, .quotebox blockquote::after{
     content: '"';
-    
 }
 
 .quotebox span{
     display: block;
-    margin-top: 11px;
+    margin-top: 10px;
     float: right;
-    color: #333;
     position: relative;
 }
 .quotebox span::before{
     content: '-';
     position: absolute;
-    left: -20px;
-    top: 0;
-    font-size: 40px;
-    color: #333;
+    width: 20px;
+    height: 2px;
+    left: -30px;
+    top: 50%;
+    color: rgb(23, 124, 229);
 }
 .quotebox div{
     margin-top: 20px;
@@ -78,6 +85,7 @@ body{
     width: 149px;
     align-items: center;
     height: 49px;
+    font-size: 20px;
     display: flex;
     justify-content: center;
     margin: 5px;
